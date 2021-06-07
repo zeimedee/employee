@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Staff from "./staff"
+import AddEmployeeForm from './addEmployeeForm'
 import {EmployeeContext} from '../context/employeeContext'
 
 const useStyles = makeStyles((theme) => ({
@@ -27,7 +28,7 @@ function Dashboard() {
             case "employees":
                 return <Staff count={data.length} employees={data}  />;
             case "Add":
-                return "add employee";
+                return <AddEmployeeForm />;
             case "Update":
                 return "update employees";
             case "Delete":

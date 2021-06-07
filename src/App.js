@@ -8,9 +8,22 @@ function App() {
 const [username,setUsername] = useState('');
 const [password,setPassword] = useState('');
 const [data,setData] = useState(null);
+
+const [name,setName] = useState('');
+const [age,setAge] = useState('');
+const [salary,setSalary] = useState('');
+
+let context = {
+  username,setUsername,
+  password,setPassword,
+  data,setData, 
+  name,setName,
+  age,setAge,
+  salary,setSalary}
+
   return (
     
-      <EmployeeContext.Provider value={{username,setUsername,password,setPassword,data,setData}}>
+      <EmployeeContext.Provider value={context}>
       <Router>
       <Home path='/' />
       <Dash path='/dash'/>
