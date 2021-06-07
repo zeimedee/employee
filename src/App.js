@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react'
+import {Router} from '@reach/router'
+import Home from './components/home'
+import Dash from "./components/dash";
+import {EmployeeContext}  from './context/employeeContext'
 
 function App() {
+const [username,setUsername] = useState('');
+const [password,setPassword] = useState('');
+const [data,setData] = useState(null);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+      <EmployeeContext.Provider value={{username,setUsername,password,setPassword,data,setData}}>
+      <Router>
+      <Home path='/' />
+      <Dash path='/dash'/>
+      </Router>
+      </EmployeeContext.Provider>
   );
 }
 
