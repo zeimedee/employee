@@ -12,6 +12,7 @@ const [data,setData] = useState(null);
 const [name,setName] = useState('');
 const [age,setAge] = useState('');
 const [salary,setSalary] = useState('');
+const [snack,setSnack] = useState(false);
 
 let context = {
   username,setUsername,
@@ -19,7 +20,9 @@ let context = {
   data,setData, 
   name,setName,
   age,setAge,
-  salary,setSalary}
+  salary,setSalary,
+  snack,setSnack
+}
 
   return (
     

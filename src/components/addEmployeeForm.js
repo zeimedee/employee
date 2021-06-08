@@ -5,6 +5,7 @@ import {EmployeeContext} from '../context/employeeContext'
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Snack from './snack'
 const useStyles = makeStyles((theme) => ({
     root: {
       '& > *': {
@@ -20,7 +21,7 @@ function AddEmployeeForm() {
 
     const classes = useStyles();
 
-    const {name,setName,age,setAge,salary,setSalary} = useContext(EmployeeContext);
+    const {name,setName,age,setAge,salary,setSalary,snack,setSnack} = useContext(EmployeeContext);
 
     const handleSubmit =(e)=>{
       e.preventDefault();
@@ -35,6 +36,10 @@ function AddEmployeeForm() {
      setName('');
      setAge('');
      setSalary('');
+  }
+  const handleSnackClose =(e)=>{
+      e.preventDefault();
+      setSnack(!snack);
   }
 
     return (
@@ -79,6 +84,7 @@ function AddEmployeeForm() {
                         color='primary'
                     >Submit</Button>
             </form>
+            <Snack open={snack} handleClose={handleSnackClose} severity={snack ? "success" :"error"}/>
         </div>
     )
 }
